@@ -14,6 +14,11 @@ public class HUD : CanvasLayer
         get => _RemainingTime;
     }
 
+    public float ElapsedTime
+    {
+        get => InitialSeconds - _RemainingTime;
+    }
+
     [OnReady]
     private Timer _Timer;
     [OnReady("Margin/RemainingTime")]

@@ -4,7 +4,7 @@ using SxGD;
 public class Level : Control
 {
     [Signal]
-    public delegate void success();
+    public delegate void success(float time);
     [Signal]
     public delegate void restart();
 
@@ -124,6 +124,6 @@ public class Level : Control
 
     public void Continue()
     {
-        EmitSignal(nameof(success));
+        EmitSignal(nameof(success), _HUD.ElapsedTime);
     }
 }

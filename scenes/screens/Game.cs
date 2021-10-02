@@ -6,26 +6,36 @@ public class Game : Control
     [Export]
     public int CurrentLevelIdx = 1;
 
-    private Level CurrentLevel = null;
+    private Level _CurrentLevel = null;
+    private int _TotalDeaths = 0;
+    private float _TotalTime = 0;
 
     public override void _Ready()
     {
         LoadLevel(CurrentLevelIdx);
     }
 
-    public void LoadLevel(int levelId)
+    public async void LoadLevel(int levelId)
     {
         var levelPath = $"Level{levelId}";
         if (LoadCache.GetInstance().HasScene(levelPath))
         {
-            if (CurrentLevel != null)
+            var transitioner = SceneTransitioner.GetInstance();
+
+            if (_CurrentLevel != null)
             {
-                CurrentLevel.QueueFree();
+                transitioner.FadeOut();
+                await ToSignal(transitioner, nameof(SceneTransitioner.animation_finished));
+                _CurrentLevel.QueueFree();
             }
-            CurrentLevel = LoadCache.GetInstance().InstantiateScene<Level>(levelPath);
-            CurrentLevel.Connect(nameof(Level.success), this, nameof(LoadNextLevel));
-            CurrentLevel.Connect(nameof(Level.restart), this, nameof(ReloadCurrentLevel));
-            AddChild(CurrentLevel);
+
+            _CurrentLevel = LoadCache.GetInstance().InstantiateScene<Level>(levelPath);
+            _CurrentLevel.Connect(nameof(Level.success), this, nameof(LoadNextLevel));
+            _CurrentLevel.Connect(nameof(Level.restart), this, nameof(ReloadCurrentLevel));
+            AddChild(_CurrentLevel);
+
+            transitioner.FadeIn();
+            await ToSignal(transitioner, nameof(SceneTransitioner.animation_finished));
 
             CurrentLevelIdx = levelId;
         }
@@ -35,13 +45,16 @@ public class Game : Control
         }
     }
 
-    public void LoadNextLevel()
+    public void LoadNextLevel(float time)
     {
+        _TotalTime += time;
+        GD.Print("Deaths: ", _TotalDeaths, " / Time: ", _TotalTime);
         LoadLevel(CurrentLevelIdx + 1);
     }
 
     public void ReloadCurrentLevel()
     {
+        _TotalDeaths += 1;
         LoadLevel(CurrentLevelIdx);
     }
 }
