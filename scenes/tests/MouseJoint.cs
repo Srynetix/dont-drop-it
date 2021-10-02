@@ -30,7 +30,7 @@ public class MouseJoint : Position2D
         {
             var vpSize = GetViewportRect().Size;
             var vpSizeLen = vpSize.Length();
-            var position = GetViewport().GetMousePosition();
+            var position = GetGlobalMousePosition();
             var rel = position - _Parent.Position;
             var dist = rel.Length();
             var ratio = dist / vpSizeLen;
@@ -62,7 +62,8 @@ public class MouseJoint : Position2D
                 {
                     if (Radius > 0)
                     {
-                        var dist = touch.Position.DistanceSquaredTo(_Parent.Position);
+                        var worldPosition = GetCanvasTransform().XformInv(touch.Position);
+                        var dist = worldPosition.DistanceSquaredTo(_Parent.Position);
                         if (dist < Radius * Radius)
                         {
                             _Active = true;
@@ -79,7 +80,7 @@ public class MouseJoint : Position2D
         {
             if (_Active)
             {
-                DrawLine(Vector2.Zero, (GetViewport().GetMousePosition() - _Parent.GlobalPosition).Rotated(-_Parent.GlobalRotation), Colors.Gray.WithAlphaf(0.25f), 2);
+                DrawLine(Vector2.Zero, (GetGlobalMousePosition() - _Parent.GlobalPosition).Rotated(-_Parent.GlobalRotation), Colors.Gray.WithAlphaf(0.25f), 2);
             }
             else if (Radius > 0)
             {

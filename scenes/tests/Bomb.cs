@@ -58,12 +58,12 @@ public class Bomb : RigidBody2D
         }
 
         // Detect out of bounds
-        var pos = GlobalPosition;
-        var vp_size = GetViewportRect().Size;
-        if (pos.x < 0 || pos.x > vp_size.x || pos.y < 0 || pos.y > vp_size.y)
-        {
-            Explode();
-        }
+        // var pos = GlobalPosition;
+        // var vp_size = GetViewportRect().Size;
+        // if (pos.x < 0 || pos.x > vp_size.x || pos.y < 0 || pos.y > vp_size.y)
+        // {
+        //     Explode();
+        // }
     }
 
     public override void _Process(float delta)

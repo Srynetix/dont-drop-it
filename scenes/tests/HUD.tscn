@@ -1,0 +1,105 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/VG5000/VG5000-Regular.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/tests/HUD.cs" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+outline_size = 6
+outline_color = Color( 0.709804, 0, 1, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Margin/RemainingTime:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Margin:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "start"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Margin/RemainingTime:anchor_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.5, 1 ),
+"update": 0,
+"values": [ -1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Margin:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 2 )
+InitialSeconds = 30
+
+[node name="Margin" type="MarginContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RemainingTime" type="Label" parent="Margin"]
+anchor_left = -1.0
+margin_left = 20.0
+margin_top = 460.0
+margin_right = 140.0
+margin_bottom = 556.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "30'"
+align = 1
+valign = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
+anims/start = SubResource( 3 )

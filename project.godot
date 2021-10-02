@@ -10,7 +10,7 @@ config_version=4
 
 [application]
 
-config/name="Ludum Dare 49 - Don't drop it"
+config/name="Don't drop it!"
 run/main_scene="res://scenes/tests/Game.tscn"
 config/icon="res://icon.png"
 

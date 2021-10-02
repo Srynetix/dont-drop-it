@@ -3,7 +3,7 @@ using Godot;
 
 public class GameLoadCache : LoadCache
 {
-    private const int LEVEL_COUNT = 4;
+    public const int LEVEL_COUNT = 6;
 
     public override void Initialize()
     {

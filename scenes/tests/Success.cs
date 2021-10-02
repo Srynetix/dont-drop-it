@@ -10,6 +10,8 @@ public class Success : CanvasLayer
     private readonly AnimationPlayer _AnimationPlayer;
     [OnReady("Center/VBox/Next")]
     private readonly Button _Next;
+    [OnReady("Center/VBox/TimeMessage/Time")]
+    private readonly Label _TimeLabel;
 
     public override void _Ready()
     {
@@ -20,8 +22,10 @@ public class Success : CanvasLayer
         _Next.Connect("pressed", this, nameof(Continue));
     }
 
-    public void Start()
+    public void Start(float time)
     {
+        _TimeLabel.Text = $"{time:0.00}'";
+
         _Next.Disabled = false;
         _Next.MouseFilter = Control.MouseFilterEnum.Stop;
         _Next.GrabFocus();

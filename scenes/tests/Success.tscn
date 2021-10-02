@@ -1,16 +1,33 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://addons/fx/screen-effects/GaussianBlur.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/fx/screen-effects/GaussianBlur.gdshader" type="Shader" id=2]
 [ext_resource path="res://scenes/tests/GameEndButtonFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scenes/tests/GameEndFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://scenes/tests/Success.cs" type="Script" id=5]
+[ext_resource path="res://assets/fonts/VG5000/VG5000-Regular.otf" type="DynamicFontData" id=6]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 2 )
 shader_param/strength = 0.0
 shader_param/samples = 11
+
+[sub_resource type="DynamicFont" id=9]
+size = 42
+outline_size = 1
+outline_color = Color( 0.533333, 0.494118, 0.494118, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 64
+outline_size = 3
+outline_color = Color( 0.435294, 0.00784314, 0.368627, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -110,6 +127,30 @@ tracks/4/keys = {
 "update": 0,
 "values": [ 2.0, 2.0, -2.0, -2.0 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Center/VBox/TimeMessage:anchor_top")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 2.0, 2.0, 0.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Center/VBox/TimeMessage:anchor_bottom")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 2.0, 2.0, 0.0, 0.0 ]
+}
 
 [node name="Success" type="CanvasLayer"]
 script = ExtResource( 5 )
@@ -128,9 +169,9 @@ __meta__ = {
 
 [node name="VBox" type="VBoxContainer" parent="Center"]
 margin_left = 314.0
-margin_top = 174.0
+margin_top = 110.0
 margin_right = 709.0
-margin_bottom = 402.0
+margin_bottom = 465.0
 mouse_filter = 2
 custom_constants/separation = 50
 
@@ -155,10 +196,31 @@ custom_fonts/font = ExtResource( 4 )
 text = "job!"
 align = 2
 
-[node name="Next" type="Button" parent="Center/VBox"]
+[node name="TimeMessage" type="HBoxContainer" parent="Center/VBox"]
 margin_top = 170.0
 margin_right = 395.0
-margin_bottom = 228.0
+margin_bottom = 247.0
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="Center/VBox/TimeMessage"]
+margin_top = 13.0
+margin_right = 296.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 9 )
+text = "You did it in "
+
+[node name="Time" type="Label" parent="Center/VBox/TimeMessage"]
+margin_left = 300.0
+margin_right = 395.0
+margin_bottom = 77.0
+custom_fonts/font = SubResource( 10 )
+text = "60'"
+
+[node name="Next" type="Button" parent="Center/VBox"]
+margin_top = 297.0
+margin_right = 395.0
+margin_bottom = 355.0
 size_flags_vertical = 4
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
