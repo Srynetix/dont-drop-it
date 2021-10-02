@@ -1,6 +1,7 @@
 using SxGD;
 
-public class GameLoadCache: LoadCache {
+public class GameLoadCache : LoadCache
+{
     public override void Initialize()
     {
         // Loading scenes
@@ -8,7 +9,8 @@ public class GameLoadCache: LoadCache {
         StoreScene<ZoneTile>("res://scenes/entities/ZoneTile.tscn");
 
         // Loading levels
-        for (int i = 1; i <= 3; ++i) {
+        for (int i = 1; i <= 7; ++i)
+        {
             StoreScene($"Level{i}", $"res://scenes/levels/Level{i}.tscn");
         }
     }

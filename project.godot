@@ -11,12 +11,15 @@ config_version=4
 [application]
 
 config/name="Ludum Dare 49 - Don't drop it"
-run/main_scene="res://scenes/screens/Game.tscn"
-config/icon="res://icon.png"
+run/main_scene="res://scenes/screens/Boot.tscn"
+boot_splash/image="res://assets/textures/BlackPixel.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://assets/textures/Icon.png"
 
 [autoload]
 
 GameLoadCache="*res://scenes/GameLoadCache.cs"
+SceneTransitioner="*res://addons/nodeext/SceneTransitioner.tscn"
 
 [display]
 

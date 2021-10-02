@@ -70,7 +70,8 @@ public class Level : Control
         AddChild(_Bomb);
     }
 
-    private void TimesUp() {
+    private void TimesUp()
+    {
         _Bomb.Explode();
     }
 

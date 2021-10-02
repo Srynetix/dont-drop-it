@@ -3,7 +3,7 @@ using SxGD;
 
 public class Game : Control
 {
-    [Export(PropertyHint.Range, "1,5")]
+    [Export]
     public int CurrentLevelIdx = 1;
 
     private Level CurrentLevel = null;

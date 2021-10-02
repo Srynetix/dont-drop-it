@@ -70,7 +70,6 @@ script = ExtResource( 2 )
 InitialSeconds = 30
 
 [node name="Margin" type="MarginContainer" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -83,7 +82,7 @@ __meta__ = {
 }
 
 [node name="RemainingTime" type="Label" parent="Margin"]
-anchor_left = -1.0
+modulate = Color( 1, 1, 1, 0.25098 )
 margin_left = 20.0
 margin_top = 460.0
 margin_right = 140.0

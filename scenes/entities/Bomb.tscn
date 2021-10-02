@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/textures/Smoke.png" type="Texture" id=1]
 [ext_resource path="res://assets/textures/Bomb.png" type="Texture" id=2]
@@ -73,7 +73,21 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=7]
-resource_name = "win"
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:material:shader_param/dissolution_level")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:material:shader_param/dissolution_level")
 tracks/0/interp = 1
@@ -132,7 +146,8 @@ color_ramp = SubResource( 4 )
 autoplay = "idle"
 anims/explode = SubResource( 5 )
 anims/idle = SubResource( 6 )
-anims/win = SubResource( 7 )
+anims/show = SubResource( 7 )
+anims/win = SubResource( 8 )
 
 [node name="MouseJoint" parent="." instance=ExtResource( 5 )]
 Debug = true

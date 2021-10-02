@@ -43,6 +43,7 @@ public class Bomb : RigidBody2D
         _Area.Connect("area_entered", this, nameof(AreaEntered));
 
         _SpeedLimitSquared = SpeedLimit * SpeedLimit;
+        _AnimationPlayer.Play("show");
     }
 
     public override void _PhysicsProcess(float delta)
