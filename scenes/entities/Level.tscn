@@ -1,0 +1,54 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://scenes/entities/Level.cs" type="Script" id=1]
+[ext_resource path="res://addons/fx/screen-effects/Vignette.gdshader" type="Shader" id=2]
+[ext_resource path="res://addons/fx/screen-effects/Vignette.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/WallTileMap.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/entities/ZoneTileMap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ui/Intro.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/ui/GameOver.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/ui/Success.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/fx/screen-effects/FXCamera.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/ui/Help.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/ui/HUD.tscn" type="PackedScene" id=11]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 2 )
+shader_param/size = 5.0
+shader_param/ratio = 0.0
+
+[node name="Level" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WallCollider" type="StaticBody2D" parent="."]
+
+[node name="WallTileMap" parent="WallCollider" instance=ExtResource( 4 )]
+
+[node name="ZoneTileMap" parent="." instance=ExtResource( 5 )]
+
+[node name="FX" type="CanvasLayer" parent="."]
+
+[node name="Vignette" parent="FX" instance=ExtResource( 3 )]
+material = SubResource( 1 )
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+
+[node name="FXCamera" parent="." instance=ExtResource( 9 )]
+anchor_mode = 1
+
+[node name="Help" parent="." instance=ExtResource( 10 )]
+
+[node name="HUD" parent="." instance=ExtResource( 11 )]
+
+[node name="Intro" parent="." instance=ExtResource( 6 )]
+
+[node name="GameOver" parent="." instance=ExtResource( 7 )]
+
+[node name="Success" parent="." instance=ExtResource( 8 )]

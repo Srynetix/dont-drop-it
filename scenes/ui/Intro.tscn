@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://addons/fx/screen-effects/GaussianBlur.tscn" type="PackedScene" id=1]
-[ext_resource path="res://scenes/tests/GameEndFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/ui/GameEndFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://addons/fx/screen-effects/GaussianBlur.gdshader" type="Shader" id=3]
-[ext_resource path="res://scenes/tests/Intro.cs" type="Script" id=4]
+[ext_resource path="res://scenes/ui/Intro.cs" type="Script" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true

@@ -10,13 +10,13 @@ config_version=4
 
 [application]
 
-config/name="Don't drop it!"
-run/main_scene="res://scenes/tests/Game.tscn"
+config/name="Ludum Dare 49 - Don't drop it"
+run/main_scene="res://scenes/screens/Game.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-GameLoadCache="*res://scenes/tests/GameLoadCache.cs"
+GameLoadCache="*res://scenes/GameLoadCache.cs"
 
 [display]
 

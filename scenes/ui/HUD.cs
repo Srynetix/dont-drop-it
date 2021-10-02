@@ -9,8 +9,7 @@ public class HUD : CanvasLayer
     [Export]
     public int InitialSeconds = 60;
 
-    public float RemainingTime
-    {
+    public float RemainingTime {
         get => _RemainingTime;
     }
 
@@ -31,34 +30,27 @@ public class HUD : CanvasLayer
         _RemainingTime = InitialSeconds;
     }
 
-    public void Start()
-    {
+    public void Start() {
         UpdateTimeLabel();
         _AnimationPlayer.Play("start");
         _Timer.Start();
     }
 
-    public void Stop()
-    {
+    public void Stop() {
         _Timer.Stop();
     }
 
-    private void Tick()
-    {
-        if (_RemainingTime > 0)
-        {
+    private void Tick() {
+        if (_RemainingTime > 0) {
             _RemainingTime -= 0.01f;
             UpdateTimeLabel();
-        }
-        else
-        {
+        } else {
             _Timer.Stop();
             EmitSignal(nameof(times_up));
         }
     }
 
-    private void UpdateTimeLabel()
-    {
+    private void UpdateTimeLabel() {
         string time = _RemainingTime.ToString("0.00");
         _RemainingTimeLabel.Text = $"{time}'";
     }
