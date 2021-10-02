@@ -1,0 +1,157 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/fx/screen-effects/GaussianBlur.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/tests/GameEndFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://addons/fx/screen-effects/GaussianBlur.gdshader" type="Shader" id=3]
+[ext_resource path="res://scenes/tests/Intro.cs" type="Script" id=4]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/strength = 0.0
+shader_param/samples = 11
+
+[sub_resource type="Animation" id=2]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("GaussianBlur:Strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Center:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "intro"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("GaussianBlur:Strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.025, 0.025, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Center:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Center/VBox/HBox/Num:anchor_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 0.1, 1, 0.5, 1 ),
+"update": 0,
+"values": [ 2.0, 2.0, 0.0, 0.0, 2.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Center/VBox/HBox/Level:anchor_right")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 2, 2.5 ),
+"transitions": PoolRealArray( 0.1, 1, 0.5, 1 ),
+"update": 0,
+"values": [ -2.0, 0.0, 0.0, -2.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Center/VBox/Name:anchor_top")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 1.5, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 0.1, 1, 0.5, 1 ),
+"update": 0,
+"values": [ 2.0, 2.0, 0.0, 0.0, 2.0 ]
+}
+
+[node name="Intro" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="GaussianBlur" parent="." instance=ExtResource( 1 )]
+material = SubResource( 1 )
+
+[node name="Center" type="CenterContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+margin_left = 319.0
+margin_top = 166.0
+margin_right = 704.0
+margin_bottom = 410.0
+
+[node name="HBox" type="HBoxContainer" parent="Center/VBox"]
+margin_right = 385.0
+margin_bottom = 120.0
+custom_constants/separation = 20
+
+[node name="Level" type="Label" parent="Center/VBox/HBox"]
+margin_right = 240.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "Level"
+align = 2
+
+[node name="Num" type="Label" parent="Center/VBox/HBox"]
+margin_left = 260.0
+margin_right = 385.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+custom_fonts/font = ExtResource( 2 )
+text = "0"
+align = 2
+
+[node name="Name" type="Label" parent="Center/VBox"]
+margin_top = 124.0
+margin_right = 385.0
+margin_bottom = 244.0
+custom_fonts/font = ExtResource( 2 )
+text = "Unknown"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 2 )
+anims/intro = SubResource( 3 )

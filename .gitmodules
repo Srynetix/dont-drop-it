@@ -1,0 +1,9 @@
+[submodule "addons/mathext"]
+	path = addons/mathext
+	url = git@github.com:Srynetix/godot-plugin-mathext
+[submodule "addons/nodeext"]
+	path = addons/nodeext
+	url = git@github.com:Srynetix/godot-plugin-nodeext
+[submodule "addons/fx"]
+	path = addons/fx
+	url = git@github.com:Srynetix/godot-plugin-fx

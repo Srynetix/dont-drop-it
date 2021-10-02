@@ -1,0 +1,11 @@
+[gd_resource type="DynamicFont" load_steps=2 format=2]
+
+[ext_resource path="res://assets/fonts/VG5000/VG5000-Regular.otf" type="DynamicFontData" id=1]
+
+[resource]
+size = 100
+outline_size = 1
+outline_color = Color( 0.533333, 0.494118, 0.494118, 1 )
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )

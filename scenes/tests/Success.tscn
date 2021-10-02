@@ -1,0 +1,177 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://addons/fx/screen-effects/GaussianBlur.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/fx/screen-effects/GaussianBlur.gdshader" type="Shader" id=2]
+[ext_resource path="res://scenes/tests/GameEndButtonFont.tres" type="DynamicFont" id=3]
+[ext_resource path="res://scenes/tests/GameEndFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://scenes/tests/Success.cs" type="Script" id=5]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/strength = 0.0
+shader_param/samples = 11
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="Animation" id=7]
+tracks/0/type = "value"
+tracks/0/path = NodePath("GaussianBlur:Strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Center:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("GaussianBlur:Strength")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.025 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Center:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Center/VBox/Message/Left:anchor_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.25, 1 ),
+"transitions": PoolRealArray( 0.1, 1, 1 ),
+"update": 0,
+"values": [ -2.0, 0.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Center/VBox/Message/Right:anchor_right")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 0.1, 1, 1 ),
+"update": 0,
+"values": [ 2.0, 2.0, 0.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Center/VBox/Next:anchor_top")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 0.1, 1, 1 ),
+"update": 0,
+"values": [ 2.0, 2.0, -2.0, -2.0 ]
+}
+
+[node name="Success" type="CanvasLayer"]
+script = ExtResource( 5 )
+
+[node name="GaussianBlur" parent="." instance=ExtResource( 1 )]
+material = SubResource( 1 )
+
+[node name="Center" type="CenterContainer" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+margin_left = 314.0
+margin_top = 174.0
+margin_right = 709.0
+margin_bottom = 402.0
+mouse_filter = 2
+custom_constants/separation = 50
+
+[node name="Message" type="HBoxContainer" parent="Center/VBox"]
+margin_right = 395.0
+margin_bottom = 120.0
+mouse_filter = 2
+custom_constants/separation = 20
+
+[node name="Left" type="Label" parent="Center/VBox/Message"]
+margin_right = 220.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 4 )
+text = "Good"
+align = 2
+
+[node name="Right" type="Label" parent="Center/VBox/Message"]
+margin_left = 240.0
+margin_right = 395.0
+margin_bottom = 120.0
+custom_fonts/font = ExtResource( 4 )
+text = "job!"
+align = 2
+
+[node name="Next" type="Button" parent="Center/VBox"]
+margin_top = 170.0
+margin_right = 395.0
+margin_bottom = 228.0
+size_flags_vertical = 4
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = SubResource( 5 )
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = ExtResource( 3 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+shortcut_in_tooltip = false
+text = "Continue"
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 7 )
+anims/success = SubResource( 8 )

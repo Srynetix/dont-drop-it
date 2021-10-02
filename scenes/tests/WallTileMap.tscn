@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/tests/TileSet.tres" type="TileSet" id=1]
+
+[node name="WallTileMap" type="TileMap"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+collision_use_parent = true
+format = 1
