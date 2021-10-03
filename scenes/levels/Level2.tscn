@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/entities/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/fx/screen-effects/BetterBlur.tscn" type="PackedScene" id=2]
 
 [node name="Level2" instance=ExtResource( 1 )]
 LevelNumber = 2
@@ -20,3 +21,5 @@ Let the bomb fall on it and it's the [color=red]end[/color].
 
 Well, same process, move the [i]bomb[/i] in the
  [color=green]disintegrator[/color] please."
+
+[node name="BetterBlur" parent="." index="9" instance=ExtResource( 2 )]

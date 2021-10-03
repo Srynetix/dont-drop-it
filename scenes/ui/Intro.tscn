@@ -1,20 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://addons/fx/screen-effects/GaussianBlur.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/ui/GameEndFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://addons/fx/screen-effects/GaussianBlur.gdshader" type="Shader" id=3]
 [ext_resource path="res://scenes/ui/Intro.cs" type="Script" id=4]
-
-[sub_resource type="ShaderMaterial" id=1]
-resource_local_to_scene = true
-shader = ExtResource( 3 )
-shader_param/strength = 0.0
-shader_param/samples = 11
+[ext_resource path="res://addons/fx/screen-effects/BetterBlur.tscn" type="PackedScene" id=5]
 
 [sub_resource type="Animation" id=2]
 resource_name = "idle"
 tracks/0/type = "value"
-tracks/0/path = NodePath("GaussianBlur:Strength")
+tracks/0/path = NodePath("Center:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -23,10 +16,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ 0.0 ]
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Center:modulate")
+tracks/1/path = NodePath("BetterBlur:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -34,15 +27,15 @@ tracks/1/enabled = true
 tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ) ]
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=3]
 resource_name = "intro"
 length = 2.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("GaussianBlur:Strength")
+tracks/0/path = NodePath("BetterBlur:Strength")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -51,7 +44,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 2, 2.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ 0.025, 0.025, 0.0 ]
+"values": [ 1.5, 1.5, 0.0 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Center:modulate")
@@ -101,12 +94,25 @@ tracks/4/keys = {
 "update": 0,
 "values": [ 2.0, 2.0, 0.0, 0.0, 2.0 ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("BetterBlur:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [node name="Intro" type="CanvasLayer"]
 script = ExtResource( 4 )
 
-[node name="GaussianBlur" parent="." instance=ExtResource( 1 )]
-material = SubResource( 1 )
+[node name="BetterBlur" parent="." instance=ExtResource( 5 )]
+visible = false
+Strength = 1.0
 
 [node name="Center" type="CenterContainer" parent="."]
 modulate = Color( 1, 1, 1, 0 )
