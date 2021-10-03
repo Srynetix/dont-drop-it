@@ -9,14 +9,18 @@ public class Title : Control
     private Bomb _Bomb;
     [OnReady("AnimationPlayer")]
     private AnimationPlayer _AnimationPlayer;
+    [OnReady("Footer")]
+    private RichTextLabel _Footer;
 
     public override async void _Ready()
     {
         NodeExt.BindNodes(this);
 
         _Play.Connect("pressed", this, nameof(StartGame));
+        _Footer.Connect("meta_clicked", this, nameof(LinkClicked));
 
         var titleMusic = LoadCache.GetInstance().LoadResource<AudioStreamOGGVorbis>("MainSong");
+        GlobalMusic.Instance.FadeIn();
         GlobalMusic.Instance.Play(titleMusic);
 
         await ToSignal(GetTree().CreateTimer(3), "timeout");
@@ -35,5 +39,13 @@ public class Title : Control
     {
         GlobalMusic.Instance.FadeOut();
         SceneTransitioner.GetInstance().FadeToScene("res://scenes/screens/Game.tscn");
+    }
+
+    private void LinkClicked(object data)
+    {
+        if (data is string stringData)
+        {
+            OS.ShellOpen(stringData);
+        }
     }
 }

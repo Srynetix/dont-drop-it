@@ -43,12 +43,14 @@ public class GlobalMusic : AudioStreamPlayer
 
     public void FadeIn()
     {
+        _Tween.StopAll();
         _Tween.InterpolateProperty(this, "volume_db", -100, GlobalVolumeDb, 2);
         _Tween.Start();
     }
 
     public void FadeOut()
     {
+        _Tween.StopAll();
         _Tween.InterpolateProperty(this, "volume_db", GlobalVolumeDb, -100, 2);
         _Tween.Start();
     }

@@ -21,6 +21,16 @@ public class Bomb : RigidBody2D
         get => LinearVelocity.LengthSquared() / _SpeedLimitSquared;
     }
 
+    public bool Locked
+    {
+        get => _Locked;
+    }
+
+    public Sprite Sprite
+    {
+        get => _Sprite;
+    }
+
     [OnReady("Timer")]
     private readonly Timer _Timer;
     [OnReady("AnimationPlayer")]
@@ -37,6 +47,7 @@ public class Bomb : RigidBody2D
     private float _SpeedLimitSquared;
     private bool _End;
     private bool _Dizzy;
+    private bool _Locked;
     private bool _OnSecurity;
     private AudioStreamPlayer _LoopPlayer;
 
@@ -71,8 +82,7 @@ public class Bomb : RigidBody2D
 
         if (!EnableInput)
         {
-            _MouseJoint.Visible = false;
-            _MouseJoint.SetPhysicsProcess(false);
+            DisableMouseJoint();
         }
     }
 
@@ -134,8 +144,7 @@ public class Bomb : RigidBody2D
         var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("ExplosionFX");
         _AudioPlayer.Play(stream, voice: 1);
 
-        _MouseJoint.Visible = false;
-        _MouseJoint.SetPhysicsProcess(false);
+        DisableMouseJoint();
         _End = true;
         Sleeping = true;
 
@@ -157,8 +166,7 @@ public class Bomb : RigidBody2D
         var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("SuccessFX");
         _AudioPlayer.Play(stream, voice: 1);
 
-        _MouseJoint.Visible = false;
-        _MouseJoint.SetPhysicsProcess(false);
+        DisableMouseJoint();
         _End = true;
 
         EmitSignal(nameof(win));
@@ -196,6 +204,12 @@ public class Bomb : RigidBody2D
                 CollideWithTile(cellName);
             }
         }
+    }
+
+    public void DisableMouseJoint()
+    {
+        _MouseJoint.Visible = false;
+        _MouseJoint.SetPhysicsProcess(false);
     }
 
     private void AreaEntered(Area2D area)
@@ -239,6 +253,13 @@ public class Bomb : RigidBody2D
         else if (name == "End")
         {
             Win();
+        }
+
+        else if (name == "Locked")
+        {
+            _Locked = true;
+            GravityScale = 0;
+            DisableMouseJoint();
         }
 
         else if (name == "Dizzy")

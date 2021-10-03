@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://scenes/screens/Title.cs" type="Script" id=1]
 [ext_resource path="res://scenes/ui/GameEndButtonFont.tres" type="DynamicFont" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scenes/entities/MovingBackground.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/ui/TitleFont.tres" type="DynamicFont" id=6]
 [ext_resource path="res://assets/textures/Bomb.png" type="Texture" id=7]
+[ext_resource path="res://assets/fonts/VG5000/VG5000-Regular.otf" type="DynamicFontData" id=8]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -18,7 +19,13 @@
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="DynamicFont" id=9]
+size = 26
+outline_size = 1
+outline_color = Color( 0.254902, 0, 0.486275, 1 )
+font_data = ExtResource( 8 )
+
+[sub_resource type="Animation" id=10]
 resource_name = "colors"
 length = 1.25
 loop = true
@@ -84,7 +91,7 @@ tracks/4/keys = {
 "values": [ 0.0, -0.01, 0.01, 0.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=11]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Center:modulate")
 tracks/0/interp = 1
@@ -122,7 +129,7 @@ tracks/2/keys = {
 "values": [ 2.0 ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=12]
 length = 2.5
 step = 0.05
 tracks/0/type = "value"
@@ -257,6 +264,18 @@ tracks/10/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
+tracks/11/type = "value"
+tracks/11/path = NodePath("Footer:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 1.8, 2 ),
+"transitions": PoolRealArray( 0.5, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Title" type="Control"]
 anchor_right = 1.0
@@ -306,6 +325,8 @@ margin_bottom = 280.0
 custom_constants/separation = -40
 
 [node name="Dont" type="Label" parent="Center/VBox/HBox/VBox"]
+anchor_left = -3.0
+anchor_right = -3.0
 margin_right = 240.0
 margin_bottom = 120.0
 custom_fonts/font = ExtResource( 6 )
@@ -314,6 +335,8 @@ align = 1
 valign = 1
 
 [node name="Drop" type="Label" parent="Center/VBox/HBox/VBox"]
+anchor_left = -3.0
+anchor_right = -3.0
 margin_top = 80.0
 margin_right = 240.0
 margin_bottom = 200.0
@@ -323,6 +346,8 @@ align = 1
 valign = 1
 
 [node name="It" type="Label" parent="Center/VBox/HBox/VBox"]
+anchor_left = -3.0
+anchor_right = -3.0
 margin_top = 160.0
 margin_right = 240.0
 margin_bottom = 280.0
@@ -332,7 +357,8 @@ align = 1
 valign = 1
 
 [node name="Bomb" type="TextureRect" parent="Center/VBox/HBox"]
-modulate = Color( 0.72382, 0.199706, 0.199706, 1 )
+anchor_left = 2.0
+anchor_right = 2.0
 margin_left = 244.0
 margin_right = 494.0
 margin_bottom = 280.0
@@ -341,6 +367,8 @@ texture = ExtResource( 7 )
 stretch_mode = 6
 
 [node name="Play" type="Button" parent="Center/VBox"]
+anchor_top = 2.0
+anchor_bottom = 2.0
 margin_top = 330.0
 margin_right = 494.0
 margin_bottom = 388.0
@@ -356,8 +384,25 @@ custom_colors/font_color_pressed = Color( 0.290196, 0, 0.454902, 1 )
 text = "Play"
 flat = true
 
+[node name="Footer" type="RichTextLabel" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -39.0
+margin_right = 512.0
+custom_fonts/normal_font = SubResource( 9 )
+bbcode_enabled = true
+bbcode_text = "[center]Made by [tornado freq=4 radius=2][url=https://github.com/Srynetix]@Srynetix[/url][/tornado] for [rainbow]Ludum Dare 49[/rainbow][/center]"
+text = "Made by @Srynetix for Ludum Dare 49"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/colors = SubResource( 6 )
-anims/idle = SubResource( 7 )
-anims/play = SubResource( 8 )
+anims/colors = SubResource( 10 )
+anims/idle = SubResource( 11 )
+anims/play = SubResource( 12 )

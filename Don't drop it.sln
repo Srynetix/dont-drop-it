@@ -1,6 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ludum Dare 49 - Don't drop it", "Ludum Dare 49 - Don't drop it.csproj", "{933E255A-8890-468A-B799-8006AD3B6066}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Don't drop it", "Don't drop it.csproj", "{933E255A-8890-468A-B799-8006AD3B6066}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

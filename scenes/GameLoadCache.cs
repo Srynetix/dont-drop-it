@@ -9,6 +9,10 @@ public class GameLoadCache : LoadCache
         StoreScene<Bomb>("res://scenes/entities/Bomb.tscn");
         StoreScene<ZoneTile>("res://scenes/entities/ZoneTile.tscn");
 
+        // Loading screens
+        StoreScene<Title>("res://scenes/screens/Title.tscn");
+        StoreScene<Credits>("res://scenes/screens/Credits.tscn");
+
         // Loading sounds
         StoreResource<AudioStreamOGGVorbis>("AmbientLoop", "res://assets/sounds/AmbientBomb.ogg");
         StoreResource<AudioStreamSample>("BounceFX", "res://assets/sounds/Bounce.wav");
@@ -27,7 +31,7 @@ public class GameLoadCache : LoadCache
         StoreResource<Texture>("WhitePixel", "res://assets/textures/WhitePixel.png");
 
         // Loading levels
-        for (int i = 1; i <= 7; ++i)
+        for (int i = 1; i <= 8; ++i)
         {
             StoreScene($"Level{i}", $"res://scenes/levels/Level{i}.tscn");
         }

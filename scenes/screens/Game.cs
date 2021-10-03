@@ -12,6 +12,10 @@ public class Game : Control
 
     public override void _Ready()
     {
+        // Reset data
+        GameData.Instance.Store("deaths", 0);
+        GameData.Instance.Store("time", 0.0f);
+
         LoadLevel(CurrentLevelIdx);
     }
 
@@ -41,7 +45,12 @@ public class Game : Control
         }
         else
         {
-            GD.PrintErr($"Unknown level number {levelId}");
+            // Go to credits
+            GameData.Instance.Store("deaths", _TotalDeaths);
+            GameData.Instance.Store("time", _TotalTime);
+
+            var scene = LoadCache.GetInstance().LoadScene("Credits");
+            SceneTransitioner.GetInstance().FadeToScene(scene);
         }
     }
 

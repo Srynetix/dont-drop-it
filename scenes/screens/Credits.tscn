@@ -1,0 +1,188 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scenes/entities/WallTileMap.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/entities/MovingBackground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/entities/Bomb.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/screens/Credits.cs" type="Script" id=4]
+[ext_resource path="res://addons/fx/screen-effects/FXCamera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/fx/screen-effects/Vignette.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/entities/ZoneTileMap.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/ui/CreditsFont.tres" type="DynamicFont" id=8]
+
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Layer/Center:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Layer/Center/VBox/Button:anchor_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Layer/Center/VBox/Button:anchor_bottom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "show"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Layer/Center:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Layer/Center/VBox/Button:anchor_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5, 6 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ 2.0, 2.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Layer/Center/VBox/Button:anchor_bottom")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 5, 6 ),
+"transitions": PoolRealArray( 1, 0.5, 1 ),
+"update": 0,
+"values": [ 2.0, 2.0, 0.0 ]
+}
+
+[sub_resource type="StyleBoxEmpty" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[node name="Credits" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MovingBackground" parent="." instance=ExtResource( 2 )]
+SpritesCount = 50
+
+[node name="WallCollider" type="StaticBody2D" parent="."]
+collision_mask = 2
+
+[node name="WallTileMap" parent="WallCollider" instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 14, 0, 0, 17, 0, 0, 65550, 0, 0, 65553, 0, 0, 131086, 0, 0, 131089, 0, 0, 196622, 0, 0, 196625, 0, 0, 262158, 0, 0, 262161, 0, 0, 327694, 0, 0, 327697, 0, 0, 393230, 0, 0, 393233, 0, 0, 458766, 0, 0, 458769, 0, 0, 524302, 0, 0, 524305, 0, 0, 589838, 0, 0, 589841, 0, 0, 655374, 0, 0, 655377, 0, 0, 720910, 0, 0, 720913, 0, 0, 786446, 0, 0, 786449, 0, 0, 851982, 0, 0, 851985, 0, 0, 917518, 0, 0, 917521, 0, 0, 983054, 0, 0, 983057, 0, 0, 1048590, 0, 0, 1048593, 0, 0, 1114126, 0, 0, 1114129, 0, 0, 1179662, 0, 0, 1179665, 0, 0, 1245198, 0, 0, 1245201, 0, 0, 1310734, 0, 0, 1310737, 0, 0, 1376270, 0, 0, 1376273, 0, 0, 1441806, 0, 0, 1441809, 0, 0, 1507342, 0, 0, 1507345, 0, 0, 1572878, 0, 0, 1572881, 0, 0, 1638414, 0, 0, 1638417, 0, 0, 1703950, 0, 0, 1703953, 0, 0, 1769486, 0, 0, 1769489, 0, 0, 1835022, 0, 0, 1835025, 0, 0, 1900558, 0, 0, 1900561, 0, 0, 1966094, 0, 0, 1966097, 0, 0, 2031630, 0, 0, 2031633, 0, 0, 2097166, 0, 0, 2097169, 0, 0, 2162702, 0, 0, 2162705, 0, 0, 2228238, 0, 0, 2228241, 0, 0, 2293774, 0, 0, 2293777, 0, 0, 2359310, 0, 0, 2359313, 0, 0, 2424846, 0, 0, 2424849, 0, 0, 2490382, 0, 0, 2490385, 0, 0, 2555918, 0, 0, 2555921, 0, 0, 2621454, 0, 0, 2621457, 0, 0, 2686990, 0, 0, 2686993, 0, 0, 2752526, 0, 0, 2752529, 0, 0 )
+
+[node name="ZoneTileMap" parent="." instance=ExtResource( 7 )]
+tile_data = PoolIntArray( 2752527, 12, 0, 2752528, 12, 0 )
+
+[node name="FXCamera" parent="." instance=ExtResource( 5 )]
+anchor_mode = 1
+
+[node name="Bomb" parent="." instance=ExtResource( 3 )]
+position = Vector2( 512.856, -12.9928 )
+EnableInput = false
+SoundAtInit = false
+
+[node name="FX" type="CanvasLayer" parent="."]
+
+[node name="Vignette" parent="FX" instance=ExtResource( 6 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/idle = SubResource( 1 )
+anims/show = SubResource( 2 )
+
+[node name="Layer" type="CanvasLayer" parent="."]
+
+[node name="Center" type="MarginContainer" parent="Layer"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="VBox" type="VBoxContainer" parent="Layer/Center"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 556.0
+custom_constants/separation = 50
+
+[node name="Message" type="RichTextLabel" parent="Layer/Center/VBox"]
+margin_right = 984.0
+margin_bottom = 177.0
+custom_fonts/normal_font = ExtResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[center]
+End.
+[/center]"
+text = "
+End.
+"
+fit_content_height = true
+scroll_active = false
+
+[node name="Button" type="Button" parent="Layer/Center/VBox"]
+margin_top = 227.0
+margin_right = 984.0
+margin_bottom = 285.0
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+custom_fonts/font = ExtResource( 8 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.396078, 0.396078, 0.396078, 1 )
+custom_colors/font_color_pressed = Color( 0.247059, 0, 0.454902, 1 )
+text = "Go to title screen"
+flat = true
