@@ -14,12 +14,12 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 tile_data = PoolIntArray( 65537, 1, 0, 1048606, 2, 0 )
 
 [node name="Help" parent="." index="4"]
-Text = "It's time for another [i]level[/i].
+Text = "It's time for another [color=#9a00ff]level[/color].
 
 Watch out for the [color=grey]grey walls[/color].
 Let the bomb fall on it and it's the [color=red]end[/color].
 
-Well, same process, move the [i]bomb[/i] in the
+Well, same process, move the [color=#9a00ff]bomb[/color] in the
  [color=green]disintegrator[/color] please."
 
 [node name="BetterBlur" parent="." index="9" instance=ExtResource( 2 )]

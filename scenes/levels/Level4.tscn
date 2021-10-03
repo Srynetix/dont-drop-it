@@ -14,9 +14,9 @@ tile_data = PoolIntArray( 65537, 1, 0, 327686, 7, 0, 327687, 7, 0, 327688, 7, 0,
 
 [node name="Help" parent="." index="4"]
 Text = "Ah, [color=blue]security[/color] tiles.
-Go on, go through dragging the [i]bomb[/i].
+Go on, go through dragging the [color=#9a00ff]bomb[/color].
 
-... no don't do it, if you are dragging the bomb il will [i]explode[/i] without warning.
-But, if you let it go through [i]alone[/i], without your help, maybe you could make it...
+... no don't do it, if you are dragging the bomb il will [color=#9a00ff]explode[/color] without warning.
+But, if you let it go through [color=#9a00ff]alone[/color], without your help, maybe you could make it...
 
 Your turn."

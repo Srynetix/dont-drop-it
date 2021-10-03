@@ -15,9 +15,9 @@ tile_data = PoolIntArray( 65537, 1, 0, 393229, 15, 0, 393230, 14, 0, 393231, 14,
 [node name="Help" parent="." index="4"]
 Text = "Well, two new [rainbow]colors[/rainbow].
 
-The [color=#929D00]gold-ish[/color] color will wake something inside the [i]bomb[/i],
-making it [i]dizzy[/i] and  more difficult to control.
+The [color=#929D00]gold-ish[/color] color will wake something inside the [color=#9a00ff]bomb[/color],
+making it [color=#9a00ff]dizzy[/color] and  more difficult to control.
 
-The [color=#FFA7A7]pink[/color] color will reset the bomb status to [i]normal[/i].
+The [color=#FFA7A7]pink[/color] color will reset the bomb status to [color=#9a00ff]normal[/color].
 
 Your turn."

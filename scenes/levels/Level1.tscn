@@ -13,14 +13,14 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 tile_data = PoolIntArray( 65537, 1, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 1048606, 2, 0 )
 
 [node name="Help" parent="." index="4"]
-Text = "Hello, and welcome to the [i]lab[/i].
+Text = "Hello, and welcome to the [color=#9a00ff]lab[/color].
 
-I need you to move [i]this bomb[/i] over here,
+I need you to move [color=#9a00ff]this bomb[/color] over here,
 and place it in the [color=green]green box[/color] for proper [color=green]disintegration[/color].
 
 Careful though, it is a little [rainbow]unstable[/rainbow].
-Go too fast, and it [i]explodes[/i].
+Go too fast, and it [color=#9a00ff]explodes[/color].
 And  don't worry, [color=#00B6FF]blue walls[/color] are safe.
 
 Now drag it away from here please.
-Oh and hurry up, you only have [i]18[/i] seconds left."
+Oh and hurry up, you only have [color=#9a00ff]18[/color] seconds left."
