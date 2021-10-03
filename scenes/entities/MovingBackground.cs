@@ -3,6 +3,9 @@ using SxGD;
 
 public class MovingBackground : CanvasLayer
 {
+    [Export]
+    public int SpritesCount = 10;
+
     public Color BackgroundColor = Colors.Black;
 
     [OnReady]
@@ -53,8 +56,7 @@ public class MovingBackground : CanvasLayer
 
         _Background.Color = BackgroundColor;
 
-        var spriteCount = 20;
-        for (int i = 0; i < spriteCount; ++i)
+        for (int i = 0; i < SpritesCount; ++i)
         {
             var sprite = new BackgroundSprite()
             {

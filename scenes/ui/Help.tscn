@@ -4,7 +4,7 @@
 [ext_resource path="res://assets/fonts/VG5000/VG5000-Regular.otf" type="DynamicFontData" id=2]
 [ext_resource path="res://scenes/ui/FXTest.tres" type="RichTextEffect" id=3]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 24
 outline_color = Color( 0, 0, 0, 0.25098 )
 use_mipmaps = true
@@ -34,7 +34,7 @@ margin_bottom = 536.0
 rect_min_size = Vector2( 500, 0 )
 mouse_filter = 2
 size_flags_horizontal = 9
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[right][/right]"
 custom_effects = [ ExtResource( 3 ) ]
@@ -45,5 +45,5 @@ __meta__ = {
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.06
+wait_time = 0.05
 one_shot = true

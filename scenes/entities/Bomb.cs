@@ -11,6 +11,10 @@ public class Bomb : RigidBody2D
 
     [Export]
     public float SpeedLimit = 1000.0f;
+    [Export]
+    public bool EnableInput = true;
+    [Export]
+    public bool SoundAtInit = true;
 
     public float SpeedRatio
     {
@@ -50,17 +54,24 @@ public class Bomb : RigidBody2D
         _SpeedLimitSquared = SpeedLimit * SpeedLimit;
         _AnimationPlayer.Play("show");
 
-        var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("DisintegrateFX");
+        if (SoundAtInit) {
+            var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("DisintegrateFX");
+            _AudioPlayer.Play(stream, voice: 1);
+        }
+
         var loop = LoadCache.GetInstance().LoadResource<AudioStreamOGGVorbis>("AmbientLoop");
         _LoopPlayer = _AudioPlayer.GetVoice(3);
-        _AudioPlayer.Play(stream, voice: 1);
-
         _LoopPlayer.Stream = loop;
         _LoopPlayer.VolumeDb = -100;
         _LoopPlayer.Play();
 
         var bouncePlayer = _AudioPlayer.GetVoice(0);
         bouncePlayer.VolumeDb = -20;
+
+        if (!EnableInput) {
+            _MouseJoint.Visible = false;
+            _MouseJoint.SetPhysicsProcess(false);
+        }
     }
 
     public override void _PhysicsProcess(float delta)
