@@ -257,9 +257,15 @@ public class Bomb : RigidBody2D
 
         else if (name == "Locked")
         {
-            _Locked = true;
-            GravityScale = 0;
-            DisableMouseJoint();
+            if (!_Locked)
+            {
+                var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("LockedFX");
+                _AudioPlayer.Play(stream, voice: 2);
+
+                _Locked = true;
+                GravityScale = 0;
+                DisableMouseJoint();
+            }
         }
 
         else if (name == "Dizzy")

@@ -57,7 +57,6 @@ public class Game : Control
     public void LoadNextLevel(float time)
     {
         _TotalTime += time;
-        GD.Print("Deaths: ", _TotalDeaths, " / Time: ", _TotalTime);
         LoadLevel(CurrentLevelIdx + 1);
     }
 

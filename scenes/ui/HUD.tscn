@@ -82,7 +82,7 @@ __meta__ = {
 }
 
 [node name="RemainingTime" type="Label" parent="Margin"]
-modulate = Color( 1, 1, 1, 0.25098 )
+modulate = Color( 1, 1, 1, 0.352941 )
 margin_left = 20.0
 margin_top = 460.0
 margin_right = 140.0

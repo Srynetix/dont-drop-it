@@ -4,7 +4,6 @@
 [ext_resource path="res://scenes/entities/ZoneTileMap.cs" type="Script" id=2]
 
 [node name="TileMap" type="TileMap"]
-modulate = Color( 1, 1, 1, 0.752941 )
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 32, 32 )
 format = 1
