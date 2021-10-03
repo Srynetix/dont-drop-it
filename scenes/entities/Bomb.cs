@@ -54,7 +54,8 @@ public class Bomb : RigidBody2D
         _SpeedLimitSquared = SpeedLimit * SpeedLimit;
         _AnimationPlayer.Play("show");
 
-        if (SoundAtInit) {
+        if (SoundAtInit)
+        {
             var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("DisintegrateFX");
             _AudioPlayer.Play(stream, voice: 1);
         }
@@ -68,7 +69,8 @@ public class Bomb : RigidBody2D
         var bouncePlayer = _AudioPlayer.GetVoice(0);
         bouncePlayer.VolumeDb = -20;
 
-        if (!EnableInput) {
+        if (!EnableInput)
+        {
             _MouseJoint.Visible = false;
             _MouseJoint.SetPhysicsProcess(false);
         }

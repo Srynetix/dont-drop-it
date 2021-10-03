@@ -19,6 +19,10 @@ public class GameLoadCache : LoadCache
         StoreResource<AudioStreamSample>("SecurityFX", "res://assets/sounds/Security.wav");
         StoreResource<AudioStreamSample>("SuccessFX", "res://assets/sounds/Success.wav");
 
+        // Loading music
+        StoreResource<AudioStreamOGGVorbis>("MainSong", "res://assets/sounds/MainSong.ogg");
+        StoreResource<AudioStreamOGGVorbis>("Track1", "res://assets/sounds/Track1.ogg");
+
         // Loading textures
         StoreResource<Texture>("WhitePixel", "res://assets/textures/WhitePixel.png");
 

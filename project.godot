@@ -20,6 +20,7 @@ config/icon="res://assets/textures/Icon.png"
 
 GameLoadCache="*res://scenes/GameLoadCache.cs"
 SceneTransitioner="*res://addons/nodeext/SceneTransitioner.tscn"
+GlobalMusic="*res://scenes/entities/GlobalMusic.tscn"
 
 [display]
 

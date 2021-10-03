@@ -18,7 +18,7 @@
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 resource_name = "colors"
 length = 1.25
 loop = true
@@ -84,8 +84,7 @@ tracks/4/keys = {
 "values": [ 0.0, -0.01, 0.01, 0.0 ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "idle"
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Center:modulate")
 tracks/0/interp = 1
@@ -123,8 +122,7 @@ tracks/2/keys = {
 "values": [ 2.0 ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "play"
+[sub_resource type="Animation" id=8]
 length = 2.5
 step = 0.05
 tracks/0/type = "value"
@@ -279,6 +277,7 @@ tile_data = PoolIntArray( 1114127, 11, 0, 1114128, 11, 0 )
 
 [node name="Bomb" parent="." instance=ExtResource( 3 )]
 position = Vector2( 514.939, -40.9814 )
+gravity_scale = 0.8
 EnableInput = false
 SoundAtInit = false
 
@@ -359,6 +358,6 @@ flat = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "idle"
-anims/colors = SubResource( 8 )
-anims/idle = SubResource( 6 )
-anims/play = SubResource( 7 )
+anims/colors = SubResource( 6 )
+anims/idle = SubResource( 7 )
+anims/play = SubResource( 8 )

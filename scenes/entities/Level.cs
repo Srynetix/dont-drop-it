@@ -57,6 +57,10 @@ public class Level : Control
         _Camera.SmoothingEnabled = true;
         _Camera.LimitRight = (int)Mathf.Max(size.x * _WallTileMap.CellSize.x, vpSize.x);
         _Camera.LimitBottom = (int)Mathf.Max(size.y * _WallTileMap.CellSize.y, vpSize.y);
+
+        var titleMusic = LoadCache.GetInstance().LoadResource<AudioStreamOGGVorbis>("Track1");
+        GlobalMusic.Instance.Play(titleMusic);
+        GlobalMusic.Instance.FadeIn();
     }
 
     public void StartGame()

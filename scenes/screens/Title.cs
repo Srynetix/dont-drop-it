@@ -16,11 +16,15 @@ public class Title : Control
 
         _Play.Connect("pressed", this, nameof(StartGame));
 
-        await ToSignal(GetTree().CreateTimer(1), "timeout");
+        var titleMusic = LoadCache.GetInstance().LoadResource<AudioStreamOGGVorbis>("MainSong");
+        GlobalMusic.Instance.Play(titleMusic);
+
+        await ToSignal(GetTree().CreateTimer(3), "timeout");
         ShowAnim();
     }
 
-    private async void ShowAnim() {
+    private async void ShowAnim()
+    {
         _AnimationPlayer.Play("play");
         await ToSignal(_AnimationPlayer, "animation_finished");
 
@@ -29,6 +33,7 @@ public class Title : Control
 
     private void StartGame()
     {
+        GlobalMusic.Instance.FadeOut();
         SceneTransitioner.GetInstance().FadeToScene("res://scenes/screens/Game.tscn");
     }
 }
