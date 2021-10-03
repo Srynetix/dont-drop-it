@@ -50,6 +50,7 @@ public class Bomb : RigidBody2D
     private bool _Locked;
     private bool _OnSecurity;
     private AudioStreamPlayer _LoopPlayer;
+    private float _InitialGravityScale;
 
     public override void _Ready()
     {
@@ -61,6 +62,7 @@ public class Bomb : RigidBody2D
         Connect("body_shape_entered", this, nameof(BodyShapeEntered));
         _Area.Connect("area_entered", this, nameof(AreaEntered));
         _Area.Connect("area_exited", this, nameof(AreaExited));
+        _InitialGravityScale = GravityScale;
 
         _SpeedLimitSquared = SpeedLimit * SpeedLimit;
         _AnimationPlayer.Play("show");
@@ -212,6 +214,12 @@ public class Bomb : RigidBody2D
         _MouseJoint.SetPhysicsProcess(false);
     }
 
+    public void EnableMouseJoint()
+    {
+        _MouseJoint.Visible = true;
+        _MouseJoint.SetPhysicsProcess(true);
+    }
+
     private void AreaEntered(Area2D area)
     {
         if (_End)
@@ -288,6 +296,16 @@ public class Bomb : RigidBody2D
                 _AudioPlayer.Play(stream, voice: 2);
 
                 _Dizzy = false;
+            }
+
+            if (_Locked)
+            {
+                var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("NormalFX");
+                _AudioPlayer.Play(stream, voice: 2);
+
+                EnableMouseJoint();
+                GravityScale = _InitialGravityScale;
+                _Locked = false;
             }
         }
     }

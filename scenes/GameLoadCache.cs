@@ -27,12 +27,13 @@ public class GameLoadCache : LoadCache
         // Loading music
         StoreResource<AudioStreamOGGVorbis>("MainSong", "res://assets/sounds/MainSong.ogg");
         StoreResource<AudioStreamOGGVorbis>("Track1", "res://assets/sounds/Track1.ogg");
+        StoreResource<AudioStreamOGGVorbis>("Track2", "res://assets/sounds/Track2.ogg");
 
         // Loading textures
         StoreResource<Texture>("WhitePixel", "res://assets/textures/WhitePixel.png");
 
         // Loading levels
-        for (int i = 1; i <= 8; ++i)
+        for (int i = 1; i <= 10; ++i)
         {
             StoreScene($"Level{i}", $"res://scenes/levels/Level{i}.tscn");
         }

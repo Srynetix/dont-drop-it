@@ -58,7 +58,12 @@ public class Level : Control
         _Camera.LimitRight = (int)Mathf.Max(size.x * _WallTileMap.CellSize.x, vpSize.x);
         _Camera.LimitBottom = (int)Mathf.Max(size.y * _WallTileMap.CellSize.y, vpSize.y);
 
-        var titleMusic = LoadCache.GetInstance().LoadResource<AudioStreamOGGVorbis>("Track1");
+        var trackName = "Track1";
+        if (LevelNumber > 5)
+        {
+            trackName = "Track2";
+        }
+        var titleMusic = LoadCache.GetInstance().LoadResource<AudioStreamOGGVorbis>(trackName);
         GlobalMusic.Instance.Play(titleMusic);
         GlobalMusic.Instance.FadeIn();
     }
