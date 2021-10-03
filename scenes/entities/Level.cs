@@ -49,7 +49,8 @@ public class Level : Control
         _HUD.Connect(nameof(HUD.times_up), this, nameof(TimesUp));
 
         // Prepare camera
-        var size = _WallTileMap.GetUsedRect().Size;
+        var rect = _WallTileMap.GetUsedRect();
+        var size = rect.Position + rect.Size;
         var vpSize = GetViewportRect().Size;
         _Camera.LimitLeft = 0;
         _Camera.LimitTop = 0;

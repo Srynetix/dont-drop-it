@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Disintegrate.wav-ba0d54c0440bcdee81044c0cba88111d.sample"
+
+[deps]
+
+source_file="res://assets/sounds/Disintegrate.wav"
+dest_files=[ "res://.import/Disintegrate.wav-ba0d54c0440bcdee81044c0cba88111d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

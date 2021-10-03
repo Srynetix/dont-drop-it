@@ -27,11 +27,14 @@ public class Bomb : RigidBody2D
     private readonly Sprite _Sprite;
     [OnReady("Area")]
     private readonly Area2D _Area;
+    [OnReady]
+    private readonly AudioMultiStreamPlayer _AudioPlayer;
 
     private float _SpeedLimitSquared;
     private bool _End;
     private bool _Dizzy;
     private bool _OnSecurity;
+    private AudioStreamPlayer _LoopPlayer;
 
     public override void _Ready()
     {
@@ -46,6 +49,18 @@ public class Bomb : RigidBody2D
 
         _SpeedLimitSquared = SpeedLimit * SpeedLimit;
         _AnimationPlayer.Play("show");
+
+        var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("DisintegrateFX");
+        var loop = LoadCache.GetInstance().LoadResource<AudioStreamOGGVorbis>("AmbientLoop");
+        _LoopPlayer = _AudioPlayer.GetVoice(3);
+        _AudioPlayer.Play(stream, voice: 1);
+
+        _LoopPlayer.Stream = loop;
+        _LoopPlayer.VolumeDb = -100;
+        _LoopPlayer.Play();
+
+        var bouncePlayer = _AudioPlayer.GetVoice(0);
+        bouncePlayer.VolumeDb = -20;
     }
 
     public override void _PhysicsProcess(float delta)
@@ -55,14 +70,14 @@ public class Bomb : RigidBody2D
             return;
         }
 
+        var ratio = LinearVelocity.LengthSquared() / _SpeedLimitSquared;
+        _LoopPlayer.VolumeDb = MathExt.Map(ratio, 0, 1, -80, -10);
+
         if (LinearVelocity.LengthSquared() > _SpeedLimitSquared)
         {
             Explode();
         }
-    }
 
-    public override void _Process(float delta)
-    {
         if (_Dizzy)
         {
             _Sprite.Modulate = Colors.Yellow;
@@ -78,7 +93,6 @@ public class Bomb : RigidBody2D
         else
         {
             // Adapt tint depending on speed ratio
-            var ratio = LinearVelocity.LengthSquared() / _SpeedLimitSquared;
             var color = Colors.White.LinearInterpolate(Colors.Red, ratio);
             _Sprite.Modulate = color;
         }
@@ -102,6 +116,11 @@ public class Bomb : RigidBody2D
             return;
         }
 
+        _LoopPlayer.Stop();
+
+        var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("ExplosionFX");
+        _AudioPlayer.Play(stream, voice: 1);
+
         _MouseJoint.Visible = false;
         _MouseJoint.SetPhysicsProcess(false);
         _End = true;
@@ -119,6 +138,11 @@ public class Bomb : RigidBody2D
         {
             return;
         }
+
+        _LoopPlayer.Stop();
+
+        var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("SuccessFX");
+        _AudioPlayer.Play(stream, voice: 1);
 
         _MouseJoint.Visible = false;
         _MouseJoint.SetPhysicsProcess(false);
@@ -149,6 +173,10 @@ public class Bomb : RigidBody2D
         {
             if (staticBody.GetNode("WallTileMap") is TileMap map)
             {
+                // Play sound
+                var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("BounceFX");
+                _AudioPlayer.Play(stream, voice: 0);
+
                 var coord = (Vector2)Physics2DServer.BodyGetShapeMetadata(staticBody.GetRid(), bodyShape);
                 var cellIdx = map.GetCellv(coord);
                 var cellName = map.TileSet.TileGetName(cellIdx);
@@ -204,6 +232,9 @@ public class Bomb : RigidBody2D
         {
             if (!_Dizzy)
             {
+                var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("DizzyFX");
+                _AudioPlayer.Play(stream, voice: 2);
+
                 _Dizzy = true;
                 _Timer.Start();
             }
@@ -211,7 +242,13 @@ public class Bomb : RigidBody2D
 
         else if (name == "Normal")
         {
-            _Dizzy = false;
+            if (_Dizzy)
+            {
+                var stream = LoadCache.GetInstance().LoadResource<AudioStreamSample>("NormalFX");
+                _AudioPlayer.Play(stream, voice: 2);
+
+                _Dizzy = false;
+            }
         }
     }
 

@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/entities/MovingBackground.cs" type="Script" id=1]
+[ext_resource path="res://addons/fx/screen-effects/BetterBlur.tscn" type="PackedScene" id=2]
+
+[node name="MovingBackground" type="CanvasLayer"]
+layer = -1
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="BetterBlur" parent="." instance=ExtResource( 2 )]
+Strength = 1.0

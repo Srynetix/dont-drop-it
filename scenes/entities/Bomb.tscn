@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/textures/Smoke.png" type="Texture" id=1]
 [ext_resource path="res://assets/textures/Bomb.png" type="Texture" id=2]
 [ext_resource path="res://addons/fx/materials/Dissolve.tres" type="Material" id=3]
 [ext_resource path="res://scenes/entities/Bomb.cs" type="Script" id=4]
 [ext_resource path="res://scenes/entities/MouseJoint.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/entities/AudioMultiStreamPlayer.tscn" type="PackedScene" id=6]
 
 [sub_resource type="PhysicsMaterial" id=1]
 bounce = 0.25
@@ -88,6 +89,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=8]
+length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:material:shader_param/dissolution_level")
 tracks/0/interp = 1
@@ -163,3 +165,5 @@ shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="AudioMultiStreamPlayer" parent="." instance=ExtResource( 6 )]
