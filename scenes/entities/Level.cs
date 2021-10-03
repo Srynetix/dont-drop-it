@@ -85,11 +85,6 @@ public class Level : Control
         }
     }
 
-    public void RestartGame()
-    {
-        EmitSignal(nameof(restart));
-    }
-
     public void OnGameOver()
     {
         if (_IsGameOver)
@@ -122,8 +117,27 @@ public class Level : Control
         _Success.Start(_HUD.InitialSeconds - _HUD.RemainingTime);
     }
 
+    public void RestartGame()
+    {
+        if (GetParent() == GetTree().Root)
+        {
+            // We can restart
+            GetTree().ReloadCurrentScene();
+            return;
+        }
+
+        EmitSignal(nameof(restart));
+    }
+
     public void Continue()
     {
+        if (GetParent() == GetTree().Root)
+        {
+            // We can quit
+            GetTree().Quit();
+            return;
+        }
+
         EmitSignal(nameof(success), _HUD.ElapsedTime);
     }
 }

@@ -31,6 +31,7 @@ public class Bomb : RigidBody2D
     private float _SpeedLimitSquared;
     private bool _End;
     private bool _Dizzy;
+    private bool _OnSecurity;
 
     public override void _Ready()
     {
@@ -41,6 +42,7 @@ public class Bomb : RigidBody2D
 
         Connect("body_shape_entered", this, nameof(BodyShapeEntered));
         _Area.Connect("area_entered", this, nameof(AreaEntered));
+        _Area.Connect("area_exited", this, nameof(AreaExited));
 
         _SpeedLimitSquared = SpeedLimit * SpeedLimit;
         _AnimationPlayer.Play("show");
@@ -57,14 +59,6 @@ public class Bomb : RigidBody2D
         {
             Explode();
         }
-
-        // Detect out of bounds
-        // var pos = GlobalPosition;
-        // var vp_size = GetViewportRect().Size;
-        // if (pos.x < 0 || pos.x > vp_size.x || pos.y < 0 || pos.y > vp_size.y)
-        // {
-        //     Explode();
-        // }
     }
 
     public override void _Process(float delta)
@@ -72,6 +66,14 @@ public class Bomb : RigidBody2D
         if (_Dizzy)
         {
             _Sprite.Modulate = Colors.Yellow;
+        }
+        else if (_OnSecurity)
+        {
+            _Sprite.Modulate = Colors.Blue;
+            if (_MouseJoint.Active)
+            {
+                Explode();
+            }
         }
         else
         {
@@ -168,6 +170,19 @@ public class Bomb : RigidBody2D
         }
     }
 
+    private void AreaExited(Area2D area)
+    {
+        if (_End)
+        {
+            return;
+        }
+
+        if (area is ZoneTile tile)
+        {
+            ExitTileCollision(tile.TileName);
+        }
+    }
+
     private void CollideWithTile(string name)
     {
         if (name == "WallBorder")
@@ -177,10 +192,7 @@ public class Bomb : RigidBody2D
 
         else if (name == "Security")
         {
-            if (_MouseJoint.Active)
-            {
-                Explode();
-            }
+            _OnSecurity = true;
         }
 
         else if (name == "End")
@@ -200,6 +212,14 @@ public class Bomb : RigidBody2D
         else if (name == "Normal")
         {
             _Dizzy = false;
+        }
+    }
+
+    private void ExitTileCollision(string name)
+    {
+        if (name == "Security")
+        {
+            _OnSecurity = false;
         }
     }
 }
