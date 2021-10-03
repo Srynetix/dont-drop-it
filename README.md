@@ -26,3 +26,7 @@ If you reach the end without dying once, you may get a _surprise_!
 - VG5000 font (https://gitlab.com/velvetyne/vg5000)
 
 _Good luck, and have fun!_
+
+## Preview
+
+![preview](./doc/animation.gif)
