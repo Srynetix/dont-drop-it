@@ -9,6 +9,8 @@
 
 ![screenshot](./doc/screenshot.png)
 
+**:rocket: [Play it here!](https://srynetix.github.io/ludumdare49/Dont-drop-it)**
+
 Welcome on my 3rd **Ludum Dare** Compo entry!
 
 The concept is simple: you have to **drag-n-drop** a bomb ready to explode to a safer location.  
