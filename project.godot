@@ -22,6 +22,7 @@ GameLoadCache="*res://scenes/GameLoadCache.cs"
 SceneTransitioner="*res://addons/nodeext/SceneTransitioner.tscn"
 GlobalMusic="*res://scenes/entities/GlobalMusic.tscn"
 GameData="*res://scenes/GameData.cs"
+Debug="*res://scenes/ui/Debug.tscn"
 
 [display]
 

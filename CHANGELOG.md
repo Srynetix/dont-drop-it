@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Added
+
+- Debug UI with metrics (show/hide with F12)
+
 ## [1.0.0] - 2021-10-03
 
 ### Added
