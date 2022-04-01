@@ -23,8 +23,8 @@ public class Level : Control
     protected readonly Success _Success;
     [OnReady]
     protected readonly Intro _Intro;
-    [OnReady]
-    protected readonly Help _Help;
+    [OnReady("Help")]
+    protected readonly HelpText _Help;
     [OnReady]
     protected readonly FXCamera _Camera;
     [OnReady("FX/Vignette")]
