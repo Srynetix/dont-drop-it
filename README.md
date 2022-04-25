@@ -9,7 +9,7 @@
 
 ![screenshot](./doc/screenshot.png)
 
-**:rocket: [Play it here!](https://srynetix.github.io/ludumdare49/Dont-drop-it)**
+**:rocket: [Play it here!](https://srynetix.github.io/dont-drop-it/Dont-drop-it)**
 
 Welcome on my 3rd **Ludum Dare** Compo entry!
 
