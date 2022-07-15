@@ -107,7 +107,7 @@ __meta__ = {
 }
 
 [node name="MovingBackground" parent="." instance=ExtResource( 2 )]
-SpritesCount = 50
+sprites_count = 50
 
 [node name="WallCollider" type="StaticBody2D" parent="."]
 collision_mask = 2

@@ -152,8 +152,8 @@ anims/show = SubResource( 7 )
 anims/win = SubResource( 8 )
 
 [node name="MouseJoint" parent="." instance=ExtResource( 5 )]
-Debug = true
-Radius = 32.0
+debug = true
+radius = 32.0
 
 [node name="Area" type="Area2D" parent="."]
 collision_layer = 2

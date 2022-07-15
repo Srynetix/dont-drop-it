@@ -8,6 +8,226 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Position2D",
+"class": "MouseJoint",
+"language": "GDScript",
+"path": "res://scenes/entities/MouseJoint.gd"
+}, {
+"base": "CanvasLayer",
+"class": "MovingBackground",
+"language": "GDScript",
+"path": "res://scenes/entities/MovingBackground.gd"
+}, {
+"base": "Node",
+"class": "SxAudioMultiStreamPlayer",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/audio/SxAudioMultiStreamPlayer/SxAudioMultiStreamPlayer.gd"
+}, {
+"base": "Control",
+"class": "SxBetterBlur",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/fx/screen-effects/SxBetterBlur/SxBetterBlur.gd"
+}, {
+"base": "Reference",
+"class": "SxBuffer",
+"language": "GDScript",
+"path": "res://addons/sxgd/extensions/SxBuffer.gd"
+}, {
+"base": "Reference",
+"class": "SxColor",
+"language": "GDScript",
+"path": "res://addons/sxgd/extensions/SxColor.gd"
+}, {
+"base": "CanvasLayer",
+"class": "SxDebugInfo",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/debug/SxDebugInfo/SxDebugInfo.gd"
+}, {
+"base": "CanvasLayer",
+"class": "SxDebugPanel",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/debug/SxDebugPanel/SxDebugPanel.gd"
+}, {
+"base": "Button",
+"class": "SxFAButton",
+"language": "GDScript",
+"path": "res://addons/sxgd/modules/SxFontAwesome/SxFAButton.gd"
+}, {
+"base": "Reference",
+"class": "SxFAFont",
+"language": "GDScript",
+"path": "res://addons/sxgd/modules/SxFontAwesome/SxFAFont.gd"
+}, {
+"base": "Label",
+"class": "SxFALabel",
+"language": "GDScript",
+"path": "res://addons/sxgd/modules/SxFontAwesome/SxFALabel.gd"
+}, {
+"base": "Camera2D",
+"class": "SxFXCamera",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/fx/SxFXCamera/SxFXCamera.gd"
+}, {
+"base": "RichTextLabel",
+"class": "SxFadingRichTextLabel",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/ui/SxFadingRichTextLabel/SxFadingRichTextLabel.gd"
+}, {
+"base": "Node",
+"class": "SxGameData",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/utils/SxGameData/SxGameData.gd"
+}, {
+"base": "Node",
+"class": "SxGlobalAudioFxPlayer",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/audio/SxGlobalAudioFxPlayer/SxGlobalAudioFxPlayer.gd"
+}, {
+"base": "AudioStreamPlayer",
+"class": "SxGlobalMusicPlayer",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/audio/SxGlobalMusicPlayer/SxGlobalMusicPlayer.gd"
+}, {
+"base": "Reference",
+"class": "SxInput",
+"language": "GDScript",
+"path": "res://addons/sxgd/extensions/SxInput.gd"
+}, {
+"base": "Reference",
+"class": "SxJson",
+"language": "GDScript",
+"path": "res://addons/sxgd/extensions/SxJson.gd"
+}, {
+"base": "Node",
+"class": "SxLoadCache",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/utils/SxLoadCache/SxLoadCache.gd"
+}, {
+"base": "Reference",
+"class": "SxLog",
+"language": "GDScript",
+"path": "res://addons/sxgd/extensions/SxLog.gd"
+}, {
+"base": "MarginContainer",
+"class": "SxLogPanel",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/debug/SxLogPanel/SxLogPanel.gd"
+}, {
+"base": "Reference",
+"class": "SxMath",
+"language": "GDScript",
+"path": "res://addons/sxgd/extensions/SxMath.gd"
+}, {
+"base": "ColorRect",
+"class": "SxMotionBlur",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/fx/screen-effects/SxMotionBlur/SxMotionBlur.gd"
+}, {
+"base": "Reference",
+"class": "SxOS",
+"language": "GDScript",
+"path": "res://addons/sxgd/extensions/SxOS.gd"
+}, {
+"base": "Control",
+"class": "SxSceneRunner",
+"language": "GDScript",
+"path": "res://addons/sxgd/modules/SxSceneRunner/SxSceneRunner.gd"
+}, {
+"base": "CanvasLayer",
+"class": "SxSceneTransitioner",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/utils/SxSceneTransitioner/SxSceneTransitioner.gd"
+}, {
+"base": "Reference",
+"class": "SxShader",
+"language": "GDScript",
+"path": "res://addons/sxgd/extensions/SxShader.gd"
+}, {
+"base": "ColorRect",
+"class": "SxShockwave",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/fx/screen-effects/SxShockwave/SxShockwave.gd"
+}, {
+"base": "Reference",
+"class": "SxText",
+"language": "GDScript",
+"path": "res://addons/sxgd/extensions/SxText.gd"
+}, {
+"base": "Reference",
+"class": "SxTileMap",
+"language": "GDScript",
+"path": "res://addons/sxgd/extensions/SxTileMap.gd"
+}, {
+"base": "ColorRect",
+"class": "SxVignette",
+"language": "GDScript",
+"path": "res://addons/sxgd/nodes/fx/screen-effects/SxVignette/SxVignette.gd"
+}, {
+"base": "TextureRect",
+"class": "SxVirtualButton",
+"language": "GDScript",
+"path": "res://addons/sxgd/modules/SxVirtualControls/SxVirtualButton.gd"
+}, {
+"base": "Control",
+"class": "SxVirtualControls",
+"language": "GDScript",
+"path": "res://addons/sxgd/modules/SxVirtualControls/SxVirtualControls.gd"
+}, {
+"base": "TextureRect",
+"class": "SxVirtualJoystick",
+"language": "GDScript",
+"path": "res://addons/sxgd/modules/SxVirtualControls/SxVirtualJoystick.gd"
+}, {
+"base": "Area2D",
+"class": "ZoneTile",
+"language": "GDScript",
+"path": "res://scenes/entities/ZoneTile.gd"
+}, {
+"base": "TileMap",
+"class": "ZoneTileMap",
+"language": "GDScript",
+"path": "res://scenes/entities/ZoneTileMap.gd"
+} ]
+_global_script_class_icons={
+"MouseJoint": "",
+"MovingBackground": "",
+"SxAudioMultiStreamPlayer": "",
+"SxBetterBlur": "",
+"SxBuffer": "",
+"SxColor": "",
+"SxDebugInfo": "",
+"SxDebugPanel": "",
+"SxFAButton": "",
+"SxFAFont": "",
+"SxFALabel": "",
+"SxFXCamera": "",
+"SxFadingRichTextLabel": "",
+"SxGameData": "",
+"SxGlobalAudioFxPlayer": "",
+"SxGlobalMusicPlayer": "",
+"SxInput": "",
+"SxJson": "",
+"SxLoadCache": "",
+"SxLog": "",
+"SxLogPanel": "",
+"SxMath": "",
+"SxMotionBlur": "",
+"SxOS": "",
+"SxSceneRunner": "",
+"SxSceneTransitioner": "",
+"SxShader": "",
+"SxShockwave": "",
+"SxText": "",
+"SxTileMap": "",
+"SxVignette": "",
+"SxVirtualButton": "",
+"SxVirtualControls": "",
+"SxVirtualJoystick": "",
+"ZoneTile": "",
+"ZoneTileMap": ""
+}
+
 [application]
 
 config/name="Don't drop it"
@@ -18,16 +238,19 @@ config/icon="res://assets/textures/Icon.png"
 
 [autoload]
 
-GameLoadCache="*res://scenes/GameLoadCache.cs"
-SceneTransitioner="*res://addons/nodeext/SceneTransitioner.tscn"
+GameLoadCache="*res://autoloads/GameLoadCache.gd"
+GameData="*res://autoloads/GameData.gd"
 GlobalMusic="*res://scenes/entities/GlobalMusic.tscn"
-GameData="*res://scenes/GameData.cs"
 
 [display]
 
 window/size/height=576
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
+
+[engine]
+
+version="3.4.4"
 
 [input_devices]
 
