@@ -1,30 +1,35 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://scenes/entities/Level.cs" type="Script" id=1]
-[ext_resource path="res://addons/fx/screen-effects/Vignette.gdshader" type="Shader" id=2]
-[ext_resource path="res://addons/fx/screen-effects/Vignette.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/entities/Level.gd" type="Script" id=1]
+[ext_resource path="res://addons/sxgd/nodes/fx/screen-effects/SxVignette/Vignette.gdshader" type="Shader" id=2]
+[ext_resource path="res://addons/sxgd/nodes/fx/screen-effects/SxVignette/SxVignette.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/entities/WallTileMap.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/entities/ZoneTileMap.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/ui/Intro.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/ui/GameOver.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/ui/Success.tscn" type="PackedScene" id=8]
-[ext_resource path="res://addons/fx/screen-effects/FXCamera.tscn" type="PackedScene" id=9]
-[ext_resource path="res://scenes/ui/Help.tscn" type="PackedScene" id=10]
+[ext_resource path="res://addons/sxgd/nodes/fx/SxFXCamera/SxFXCamera.tscn" type="PackedScene" id=9]
+[ext_resource path="res://addons/sxgd/nodes/ui/SxFadingRichTextLabel/SxFadingRichTextLabel.tscn" type="PackedScene" id=10]
 [ext_resource path="res://scenes/ui/HUD.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/entities/MovingBackground.tscn" type="PackedScene" id=12]
+[ext_resource path="res://assets/fonts/VG5000/VG5000-Regular.otf" type="DynamicFontData" id=13]
 
 [sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
 shader = ExtResource( 2 )
 shader_param/size = 5.0
 shader_param/ratio = 0.0
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 13 )
 
 [node name="Level" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MovingBackground" parent="." instance=ExtResource( 12 )]
 
@@ -38,17 +43,33 @@ __meta__ = {
 
 [node name="Vignette" parent="FX" instance=ExtResource( 3 )]
 material = SubResource( 1 )
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
+vignette_size = 5.0
+vignette_ratio = 0.0
 
 [node name="FXCamera" parent="." instance=ExtResource( 9 )]
 anchor_mode = 1
 
-[node name="Help" parent="." instance=ExtResource( 10 )]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 40
+custom_constants/margin_top = 40
+custom_constants/margin_left = 40
+custom_constants/margin_bottom = 40
+
+[node name="Help" parent="MarginContainer" instance=ExtResource( 10 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 40.0
+margin_top = 40.0
+margin_right = 984.0
+margin_bottom = 536.0
+custom_fonts/normal_font = SubResource( 2 )
+char_delay = 0.05
+text_alignment = 1
 
 [node name="HUD" parent="." instance=ExtResource( 11 )]
+initial_seconds = 30.0
 
 [node name="Intro" parent="." instance=ExtResource( 6 )]
 

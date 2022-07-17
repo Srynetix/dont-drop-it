@@ -3,8 +3,8 @@
 [ext_resource path="res://scenes/ui/GameEndButtonFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://scenes/ui/GameEndFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://assets/fonts/VG5000/VG5000-Regular.otf" type="DynamicFontData" id=5]
-[ext_resource path="res://scenes/ui/Success.cs" type="Script" id=6]
-[ext_resource path="res://addons/fx/screen-effects/BetterBlur.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/ui/Success.gd" type="Script" id=6]
+[ext_resource path="res://addons/sxgd/nodes/fx/screen-effects/SxBetterBlur/SxBetterBlur.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=11]
 size = 42
@@ -145,7 +145,7 @@ tracks/6/keys = {
 "values": [ true ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("BetterBlur:Strength")
+tracks/7/path = NodePath("BetterBlur:strength")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false

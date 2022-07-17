@@ -29,5 +29,5 @@ func load_resources() -> void:
     store_resource("WhitePixel", "res://assets/textures/WhitePixel.png")
 
     # Loading levels
-    for i in range(1, 9):
+    for i in range(1, 10 + 1):
         store_scene("Level%d" % i, "res://scenes/levels/Level%d.tscn" % i);

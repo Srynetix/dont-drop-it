@@ -1,0 +1,40 @@
+name: Push builds
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+jobs:
+  build-web:
+    uses: ./.github/workflows/build-game.yml
+    with:
+      platform: HTML5
+      name: dont-drop-it
+      output_name: index.html
+  build-windows:
+    uses: ./.github/workflows/build-game.yml
+    with:
+      platform: Windows Desktop
+      name: dont-drop-it
+      output_name: Dont Drop It.exe
+  build-mac:
+    uses: ./.github/workflows/build-game.yml
+    with:
+      platform: Mac OSX
+      name: dont-drop-it
+      output_name: Dont Drop It.zip
+  build-linux:
+    uses: ./.github/workflows/build-game.yml
+    with:
+      platform: Linux X11
+      name: dont-drop-it
+      output_name: Dont Drop It.x86_64
+  build-android-debug:
+    uses: ./.github/workflows/build-game.yml
+    with:
+      platform: Android
+      name: dont-drop-it
+      output_name: Dont Drop It.apk
+      debug: true

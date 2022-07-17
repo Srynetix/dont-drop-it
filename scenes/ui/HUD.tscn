@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/fonts/VG5000/VG5000-Regular.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://scenes/ui/HUD.cs" type="Script" id=2]
+[ext_resource path="res://scenes/ui/HUD.gd" type="Script" id=2]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
@@ -67,7 +67,6 @@ tracks/1/keys = {
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource( 2 )
-InitialSeconds = 30
 
 [node name="Margin" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -89,8 +88,8 @@ margin_right = 140.0
 margin_bottom = 556.0
 size_flags_horizontal = 0
 size_flags_vertical = 8
-custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
 text = "30'"
 align = 1
 valign = 1

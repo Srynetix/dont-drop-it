@@ -20,8 +20,8 @@ class BackgroundSprite:
         global_position = pos
 
     func _process(delta: float) -> void:
-        var vp_size = get_viewport_rect().size
-        var pos = global_position
+        var vp_size := get_viewport_rect().size
+        var pos := global_position
         pos.x -= sin(_t) * speed * delta
 
         if pos.x < -scale.x / 2:
@@ -37,7 +37,7 @@ func _ready() -> void:
     _background.color = background_color
 
     for _i in range(sprites_count):
-        var sprite = BackgroundSprite.new()
+        var sprite := BackgroundSprite.new()
         sprite.speed = rand_range(10.0, 100.0)
         sprite.scale = Vector2(rand_range(50.0, 100.0), 2)
         sprite.modulate = SxColor.rand()

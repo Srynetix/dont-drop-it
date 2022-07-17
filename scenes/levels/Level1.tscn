@@ -1,10 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://scenes/entities/Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/sxgd/nodes/fx/screen-effects/SxVignette/Vignette.gdshader" type="Shader" id=2]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 2 )
+shader_param/size = 5.0
+shader_param/ratio = 0.0
 
 [node name="Level1" instance=ExtResource( 1 )]
-LevelNumber = 1
-LevelName = "Welcome"
+level_number = 1
+level_name = "Welcome"
 
 [node name="MovingBackground" parent="." index="0"]
 sprites_count = 2
@@ -15,8 +22,11 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 [node name="ZoneTileMap" parent="." index="2"]
 tile_data = PoolIntArray( 65537, 1, 0, 1048606, 2, 0 )
 
-[node name="Help" parent="." index="5"]
-Text = "Hello, and welcome to the [color=#9a00ff]lab[/color].
+[node name="Vignette" parent="FX" index="0"]
+material = SubResource( 1 )
+
+[node name="Help" parent="MarginContainer" index="0"]
+bbcode_text = "Hello, and welcome to the [color=#9a00ff]lab[/color].
 
 I need you to move [color=#9a00ff]this bomb[/color] over here,
 and place it in the [color=green]green box[/color] for proper [color=green]disintegration[/color].

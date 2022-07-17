@@ -38,8 +38,8 @@ func _input(event: InputEvent) -> void:
             
             else:
                 if radius > 0:
-                    var world_position = get_canvas_transform().xform_inv(touch_event.position)
-                    var dist = world_position.distance_squared_to(_parent.position)
+                    var world_position: Vector2 = get_canvas_transform().xform_inv(touch_event.position)
+                    var dist := world_position.distance_squared_to(_parent.position)
                     if dist < radius * radius:
                         active = true
 

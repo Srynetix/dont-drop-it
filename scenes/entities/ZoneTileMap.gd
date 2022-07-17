@@ -15,7 +15,7 @@ func _ready() -> void:
 func get_start_position() -> Vector2:
     var start_id := tile_set.find_tile_by_name("Start")
     var start_cells := get_used_cells_by_id(start_id)
-    var cells_count = len(start_cells)
+    var cells_count := len(start_cells)
     if cells_count == 0:
         assert(false, "Missing starting position in level.")
         return Vector2()

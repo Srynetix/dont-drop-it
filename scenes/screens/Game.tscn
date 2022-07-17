@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://scenes/screens/Game.cs" type="Script" id=1]
+[ext_resource path="res://scenes/screens/Game.gd" type="Script" id=1]
 
 [node name="Game" type="Control"]
 anchor_right = 1.0
@@ -8,6 +8,4 @@ anchor_bottom = 1.0
 margin_left = 0.396851
 margin_right = 0.396851
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+current_level_idx = 8
