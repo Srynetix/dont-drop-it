@@ -3,9 +3,9 @@
 [ext_resource path="res://scenes/entities/WallTileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/textures/Bomb.png" type="Texture" id=2]
 [ext_resource path="res://scenes/ui/TitleFont.tres" type="DynamicFont" id=3]
-[ext_resource path="res://addons/fx/screen-effects/BetterBlur.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/sxgd/nodes/fx/screen-effects/SxBetterBlur/SxBetterBlur.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scenes/entities/MovingBackground.tscn" type="PackedScene" id=6]
-[ext_resource path="res://addons/fx/screen-effects/Vignette.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/sxgd/nodes/fx/screen-effects/SxVignette/SxVignette.tscn" type="PackedScene" id=7]
 
 [node name="Promo" type="Control"]
 anchor_right = 1.0
@@ -22,7 +22,7 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 [node name="Vignette" parent="." instance=ExtResource( 7 )]
 
 [node name="BetterBlur" parent="." instance=ExtResource( 5 )]
-Strength = 1.0
+strength = 1.0
 
 [node name="Center" type="CenterContainer" parent="."]
 anchor_right = 1.0

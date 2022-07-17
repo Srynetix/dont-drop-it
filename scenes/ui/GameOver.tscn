@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://scenes/ui/GameOver.cs" type="Script" id=1]
+[ext_resource path="res://scenes/ui/GameOver.gd" type="Script" id=1]
 [ext_resource path="res://scenes/ui/GameEndButtonFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://scenes/ui/GameEndFont.tres" type="DynamicFont" id=4]
-[ext_resource path="res://addons/fx/screen-effects/BetterBlur.tscn" type="PackedScene" id=6]
+[ext_resource path="res://addons/sxgd/nodes/fx/screen-effects/SxBetterBlur/SxBetterBlur.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxEmpty" id=2]
 
@@ -78,7 +78,7 @@ tracks/4/keys = {
 "values": [ true ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("BetterBlur:Strength")
+tracks/5/path = NodePath("BetterBlur:strength")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false

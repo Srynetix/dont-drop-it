@@ -3,9 +3,9 @@
 [ext_resource path="res://scenes/entities/WallTileMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/entities/MovingBackground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/entities/Bomb.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/screens/Credits.cs" type="Script" id=4]
-[ext_resource path="res://addons/fx/screen-effects/FXCamera.tscn" type="PackedScene" id=5]
-[ext_resource path="res://addons/fx/screen-effects/Vignette.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/screens/Credits.gd" type="Script" id=4]
+[ext_resource path="res://addons/sxgd/nodes/fx/SxFXCamera/SxFXCamera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/sxgd/nodes/fx/screen-effects/SxVignette/SxVignette.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/entities/ZoneTileMap.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/ui/CreditsFont.tres" type="DynamicFont" id=8]
 
@@ -107,7 +107,7 @@ __meta__ = {
 }
 
 [node name="MovingBackground" parent="." instance=ExtResource( 2 )]
-SpritesCount = 50
+sprites_count = 50
 
 [node name="WallCollider" type="StaticBody2D" parent="."]
 collision_mask = 2
@@ -123,8 +123,8 @@ anchor_mode = 1
 
 [node name="Bomb" parent="." instance=ExtResource( 3 )]
 position = Vector2( 512.856, -12.9928 )
-EnableInput = false
-SoundAtInit = false
+enable_input = false
+sound_at_init = false
 
 [node name="FX" type="CanvasLayer" parent="."]
 

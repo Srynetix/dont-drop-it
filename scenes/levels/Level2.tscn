@@ -1,14 +1,13 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/entities/Level.tscn" type="PackedScene" id=1]
-[ext_resource path="res://addons/fx/screen-effects/BetterBlur.tscn" type="PackedScene" id=2]
 
 [node name="Level2" instance=ExtResource( 1 )]
-LevelNumber = 2
-LevelName = "Avoid"
+level_number = 2
+level_name = "Avoid"
 
 [node name="MovingBackground" parent="." index="0"]
-SpritesCount = 4
+sprites_count = 4
 
 [node name="WallTileMap" parent="WallCollider" index="0"]
 tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 65536, 0, 0, 65567, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131103, 0, 0, 196608, 11, 0, 196639, 0, 0, 262144, 11, 0, 262175, 0, 0, 327680, 11, 0, 327711, 0, 0, 393216, 11, 0, 393247, 0, 0, 458752, 11, 0, 458783, 0, 0, 524288, 11, 0, 524299, 11, 0, 524300, 11, 0, 524301, 11, 0, 524302, 11, 0, 524303, 11, 0, 524304, 11, 0, 524305, 11, 0, 524306, 11, 0, 524307, 11, 0, 524308, 11, 0, 524319, 0, 0, 589824, 11, 0, 589855, 0, 0, 655360, 11, 0, 655391, 0, 0, 720896, 11, 0, 720927, 0, 0, 786432, 11, 0, 786433, 11, 0, 786434, 11, 0, 786435, 11, 0, 786436, 11, 0, 786463, 0, 0, 851968, 11, 0, 851969, 8, 0, 851970, 8, 0, 851971, 8, 0, 851972, 11, 0, 851999, 0, 0, 917504, 11, 0, 917505, 11, 0, 917506, 11, 0, 917507, 8, 0, 917508, 11, 0, 917535, 0, 0, 983040, 11, 0, 983041, 8, 0, 983042, 8, 0, 983043, 8, 0, 983044, 11, 0, 983069, 0, 0, 983071, 0, 0, 1048576, 11, 0, 1048577, 8, 0, 1048578, 11, 0, 1048579, 11, 0, 1048580, 11, 0, 1048605, 0, 0, 1048607, 0, 0, 1114112, 11, 0, 1114113, 8, 0, 1114114, 8, 0, 1114115, 8, 0, 1114116, 11, 0, 1114117, 11, 0, 1114118, 11, 0, 1114119, 11, 0, 1114120, 11, 0, 1114121, 11, 0, 1114122, 11, 0, 1114123, 11, 0, 1114124, 11, 0, 1114125, 11, 0, 1114126, 11, 0, 1114127, 11, 0, 1114128, 11, 0, 1114129, 11, 0, 1114130, 11, 0, 1114131, 11, 0, 1114132, 11, 0, 1114133, 11, 0, 1114134, 11, 0, 1114135, 11, 0, 1114136, 11, 0, 1114137, 11, 0, 1114138, 11, 0, 1114139, 11, 0, 1114140, 11, 0, 1114141, 0, 0, 1114142, 0, 0, 1114143, 0, 0 )
@@ -16,13 +15,11 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 [node name="ZoneTileMap" parent="." index="2"]
 tile_data = PoolIntArray( 65537, 1, 0, 1048606, 2, 0 )
 
-[node name="Help" parent="." index="5"]
-Text = "It's time for another [color=#9a00ff]level[/color].
+[node name="Help" parent="MarginContainer" index="5"]
+bbcode_text = "It's time for another [color=#9a00ff]level[/color].
 
 Watch out for the [color=grey]grey walls[/color].
 Let the bomb fall on it and it's the [color=red]end[/color].
 
 Well, same process, move the [color=#9a00ff]bomb[/color] in the
  [color=green]disintegrator[/color] please."
-
-[node name="BetterBlur" parent="." index="9" instance=ExtResource( 2 )]
