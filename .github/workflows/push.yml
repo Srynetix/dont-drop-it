@@ -8,31 +8,31 @@ on:
 
 jobs:
   build-web:
-    uses: ./.github/workflows/build-game.yml
+    uses: Srynetix/godot-github-workflows/.github/workflows/build-game-3.5.yml@main
     with:
       platform: HTML5
       name: dont-drop-it
       output_name: index.html
   build-windows:
-    uses: ./.github/workflows/build-game.yml
+    uses: Srynetix/godot-github-workflows/.github/workflows/build-game-3.5.yml@main
     with:
       platform: Windows Desktop
       name: dont-drop-it
       output_name: Dont Drop It.exe
   build-mac:
-    uses: ./.github/workflows/build-game.yml
+    uses: Srynetix/godot-github-workflows/.github/workflows/build-game-3.5.yml@main
     with:
       platform: Mac OSX
       name: dont-drop-it
       output_name: Dont Drop It.zip
   build-linux:
-    uses: ./.github/workflows/build-game.yml
+    uses: Srynetix/godot-github-workflows/.github/workflows/build-game-3.5.yml@main
     with:
       platform: Linux X11
       name: dont-drop-it
       output_name: Dont Drop It.x86_64
   build-android-debug:
-    uses: ./.github/workflows/build-game.yml
+    uses: Srynetix/godot-github-workflows/.github/workflows/build-game-3.5.yml@main
     with:
       platform: Android
       name: dont-drop-it

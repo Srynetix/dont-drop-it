@@ -2,3 +2,4 @@
 /.mono
 /exports/*
 !/exports/.gdignore
+/.vscode

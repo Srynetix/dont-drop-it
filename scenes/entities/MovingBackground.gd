@@ -16,7 +16,7 @@ class BackgroundSprite:
         texture = GameLoadCache.load_resource("WhitePixel")
         _t = initial_t
 
-        var pos := SxMath.rand_range_vec2(Vector2.ZERO, get_viewport_rect().size)
+        var pos := SxRand.range_vec2(Vector2.ZERO, get_viewport_rect().size)
         global_position = pos
 
     func _process(delta: float) -> void:
